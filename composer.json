@@ -1,0 +1,22 @@
+{
+  "name": "borobudur/nested-set",
+  "description": "Borobudur Nested Set Component For Borobudur cqrs bundle",
+  "keywords": ["borobudur", "cqrs", "command query responsibility segregation"],
+  "type": "borobudur-component",
+  "license": "MIT",
+  "homepage": "https://github.com/borobudur-php/borobudur-nestedset",
+  "minimum-stability": "dev",
+  "authors": [
+    {
+      "name": "Iqbal Maulana",
+      "email": "iqbal.maulana@eduostia.com"
+    }
+  ],
+  "require": {
+    "php": ">=5.4.0",
+    "borobudur/cqrs-bundle": "dev-master"
+  },
+  "autoload": {
+    "psr-4": { "Borobudur\\Cqrs\\": "src/" }
+  }
+}
