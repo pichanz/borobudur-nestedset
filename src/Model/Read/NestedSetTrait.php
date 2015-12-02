@@ -19,11 +19,6 @@ trait NestedSetTrait
     /**
      * @var string
      */
-    private $id;
-
-    /**
-     * @var string
-     */
     private $parentId;
 
     /**
@@ -40,16 +35,6 @@ trait NestedSetTrait
      * @var int
      */
     private $depth;
-
-    /**
-     * Get the id.
-     *
-     * @return string
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
 
     /**
      * Get the parent id.

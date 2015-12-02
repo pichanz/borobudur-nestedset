@@ -18,8 +18,6 @@ use Borobudur\Cqrs\ReadModel\ReadModelInterface;
  */
 interface NestedSetInterface extends ReadModelInterface
 {
-    public function getId();
-
     public function getParentId();
 
     public function setParentId($parentId);
