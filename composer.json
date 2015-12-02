@@ -17,6 +17,6 @@
     "borobudur/cqrs-bundle": "dev-master"
   },
   "autoload": {
-    "psr-4": { "Borobudur\\Cqrs\\": "src/" }
+    "psr-4": { "Borobudur\\Utilities\\Data\\NestedSet": "src/" }
   }
 }
