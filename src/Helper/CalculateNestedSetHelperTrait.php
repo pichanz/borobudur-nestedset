@@ -15,7 +15,7 @@ use Borobudur\Cqrs\Collection;
 use Borobudur\Cqrs\Message\QueryInterface;
 use Borobudur\Cqrs\ReadModel\AbstractReadModel;
 use Borobudur\Cqrs\ReadModel\Repository\Repository;
-use Borobudur\Utilities\Data\NestedSet\Model\Read\NestedSetInterface;
+use Borobudur\NestedSet\Model\Read\NestedSetInterface;
 
 /**
  * @author      Steven Januar <januar.steven@gmail.com>
