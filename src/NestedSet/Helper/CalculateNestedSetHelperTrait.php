@@ -8,7 +8,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Borobudur\Utilities\Data\NestedSet\Helper;
+namespace Borobudur\NestedSet\Helper;
 
 use Borobudur\Collection\Criteria;
 use Borobudur\Cqrs\Collection;

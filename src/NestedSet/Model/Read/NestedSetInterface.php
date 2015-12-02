@@ -8,7 +8,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Borobudur\Utilities\Data\NestedSet\Model\Read;
+namespace Borobudur\NestedSet\Model\Read;
 
 use Borobudur\Cqrs\ReadModel\ReadModelInterface;
 
