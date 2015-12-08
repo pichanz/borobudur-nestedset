@@ -72,7 +72,7 @@ trait CalculateNestedSetHelperTrait
      * @return int
      * @throws \Exception
      */
-    protected function calculateTree(Collection $data, $id = null, $left = 0, $depth = 0)
+    private function calculateTree(Collection $data, $id = null, $left = 0, $depth = 0)
     {
         /** @var NestedSetInterface $node */
         $node = $data->matching(
