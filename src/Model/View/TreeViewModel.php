@@ -33,19 +33,23 @@ class TreeViewModel extends ViewModel
         }
 
         $builtData = parent::build();
+        $data = $this->getData();
 
-        $keys = array();
-        foreach ($builtData as $rec) {
+        $maps = array();
+        foreach ($data as $i => $rec) {
             $parentId = $rec['parentId'];
-            if (!isset($keys[$parentId])) {
-                $keys[$parentId] = array();
+            if (!isset($maps[$parentId])) {
+                $maps[$parentId] = array();
             }
 
-            array_push($keys[$parentId], $rec);
+            array_push($maps[$parentId], array(
+                'id' => $rec['id'],
+                'data' => $builtData[$i]
+            ));
         }
 
         $this->treeData = array();
-        $this->buildTree($this->treeData, $keys);
+        $this->buildTree($this->treeData, $maps);
 
         return $this->treeData;
     }
@@ -54,28 +58,30 @@ class TreeViewModel extends ViewModel
      * Build the data into tree.
      *
      * @param array  $tree
-     * @param array  $keys
+     * @param array  $maps
      * @param string $id
      * @param int    $depth
      *
      * @return int
      */
-    protected function buildTree(array &$tree, array &$keys, $id = null, $depth = 0)
+    protected function buildTree(array &$tree, array $maps, $id = null, $depth = 0)
     {
-        if (!isset($keys[$id])) {
+        if (!isset($maps[$id])) {
             return 0;
         }
 
         $total = 0;
-        foreach ($keys[$id] as $i => $rec) {
-            $node = &$keys[$id][$i];
+        foreach ($maps[$id] as $map) {
+            $node = $map['data'];
+            $node['n'] = $node['nTotal'] = 0;
             $node['children'] = array();
-            $total += $n = $this->buildTree($node['children'], $keys, $node['id'], $depth + 1);
-            $node['n'] = $n;
+            $total += $n = $this->buildTree($node['children'], $maps, $map['id'], $depth + 1);
+            $node['n'] = sizeof($node['children']);
+            $node['nTotal'] = $n;
+
+            array_push($tree, $node);
         }
 
-        $tree = $keys[$id];
-
-        return $total + sizeof($keys[$id]);
+        return $total + sizeof($maps[$id]);
     }
 }
