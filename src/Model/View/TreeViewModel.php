@@ -61,27 +61,19 @@ class TreeViewModel extends ViewModel
      * @param array  $maps
      * @param string $id
      * @param int    $depth
-     *
-     * @return int
      */
     protected function buildTree(array &$tree, array $maps, $id = null, $depth = 0)
     {
         if (!isset($maps[$id])) {
-            return 0;
+            return;
         }
 
-        $total = 0;
         foreach ($maps[$id] as $map) {
             $node = $map['data'];
-            $node['n'] = $node['nTotal'] = 0;
             $node['children'] = array();
-            $total += $n = $this->buildTree($node['children'], $maps, $map['id'], $depth + 1);
-            $node['n'] = sizeof($node['children']);
-            $node['nTotal'] = $n;
+            $this->buildTree($node['children'], $maps, $map['id'], $depth + 1);
 
             array_push($tree, $node);
         }
-
-        return $total + sizeof($maps[$id]);
     }
 }
