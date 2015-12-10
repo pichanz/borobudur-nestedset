@@ -33,7 +33,7 @@ class TreeViewModel extends ViewModel
         }
 
         $builtData = parent::build();
-        $data = $this->getData();
+        $data = $this->getRawData();
 
         $maps = array();
         foreach ($data as $i => $rec) {
